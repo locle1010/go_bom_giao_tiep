@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Liệu Gỡ Bom - TUYỆT MẬT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="document-header">
+            <div class="classification">⚠️ TUYỆT MẬT - MẬT ĐỘ CAO ⚠️</div>
+            <h1>TÀI LIỆU HƯỚNG DẪN GỠ BOM GIAO TIẾP</h1>
+            <div class="doc-info">
+                <span>Phiên bản: 2.0</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="warning-box">
+                <h3>⚠️ CẢNH BÁO QUAN TRỌNG</h3>
+                <ul>
+                    <li>Tài liệu này chỉ dành cho người ĐỌC HƯỚNG DẪN (không nhìn thấy bom).</li>
+                    <li>Người GỠ BOM (nhìn thấy bom) KHÔNG ĐƯỢC đọc tài liệu này.</li>
+                    <li>Giao tiếp rõ ràng, chính xác là yếu tố quyết định thành công.</li>
+                    <li>Mỗi sai lầm sẽ tích lũy 1 LỖI. Đủ 3 LỖI → BOM NỔ!</li>
+                </ul>
+            </div>
+
+            <!-- MODULE 1: CẮT DÂY -->
+            <section class="module-doc">
+                <h2>MODULE 1: CẮT DÂY (WIRES)</h2>
+                
+                <div class="instruction">
+                    
+                    <div class="rules">
+                        <h4>📋 QUY TẮC CẮT DÂY:</h4>
+                        
+                        <div class="rule-section">
+                            <h5>▶ Nếu có 3 DÂY:</h5>
+                            <ol>
+                                <li>Nếu KHÔNG có dây ĐỎ → Cắt dây THỨ HAI.</li>
+                                <li>Nếu dây cuối cùng là TRẮNG → Cắt dây CUỐI CÙNG.</li>
+                                <li>Nếu có NHIỀU HƠN 1 dây XANH DƯƠNG → Cắt dây XANH DƯƠNG CUỐI CÙNG.</li>
+                                <li>Còn lại → Cắt dây CUỐI CÙNG.</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="rule-section">
+                            <h5>▶ Nếu có 4 DÂY:</h5>
+                            <ol>
+                                <li>Nếu có NHIỀU HƠN 1 dây ĐỎ VÀ số Serial LẺ → Cắt dây ĐỎ CUỐI CÙNG.</li>
+                                <li>Nếu dây cuối cùng là VÀNG VÀ KHÔNG có dây ĐỎ → Cắt dây ĐẦU TIÊN.</li>
+                                <li>Nếu có ĐÚNG 1 dây XANH DƯƠNG → Cắt dây ĐẦU TIÊN.</li>
+                                <li>Nếu có NHIỀU HƠN 1 dây VÀNG → Cắt dây CUỐI CÙNG.</li>
+                                <li>Còn lại → Cắt dây THỨ HAI.</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="rule-section">
+                            <h5>▶ Nếu có 5 DÂY:</h5>
+                            <ol>
+                                <li>Nếu dây cuối cùng là ĐEN VÀ số Serial LẺ → Cắt dây THỨ TƯ.</li>
+                                <li>Nếu có ĐÚNG 1 dây ĐỎ VÀ có NHIỀU HƠN 1 dây VÀNG → Cắt dây ĐẦU TIÊN.</li>
+                                <li>Nếu KHÔNG có dây ĐEN → Cắt dây THỨ HAI.</li>
+                                <li>Còn lại → Cắt dây ĐẦU TIÊN.</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="rule-section">
+                            <h5>▶ Nếu có 6 DÂY:</h5>
+                            <ol>
+                                <li>Nếu KHÔNG có dây VÀNG VÀ số Serial LẺ → Cắt dây THỨ BA.</li>
+                                <li>Nếu có ĐÚNG 1 dây VÀNG VÀ có NHIỀU HƠN 1 dây XANH DƯƠNG → Cắt dây THỨ TƯ.</li>
+                                <li>Nếu KHÔNG có dây ĐỎ → Cắt dây CUỐI CÙNG.</li>
+                                <li>Còn lại → Cắt dây THỨ TƯ.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </section>
+
+            <!-- MODULE 2: MÊ CUNG TỪ -->
+            <section class="module-doc">
+                <h2>MODULE 2: MÊ CUNG TỪ</h2>
+                
+                <div class="instruction">
+                   
+                    
+                    <div class="rules">
+                        <h4>📋 CÁCH CHƠI ĐƠN GIẢN:</h4>
+                        <ol style="margin-left: 30px; margin-top: 10px; line-height: 2;">
+                            <li><strong>Người gỡ bom</strong> sẽ thấy màn hình hiển thị 1 TỪ (ví dụ: "READY").</li>
+                            <li><strong>Người hướng dẫn</strong> tra bảng dưới đây tìm từ đó.</li>
+                            <li><strong>Danh sách ưu tiên</strong> sẽ chỉ ra các từ cần tìm trên nút bấm (theo thứ tự).</li>
+                            <li><strong>Người hướng dẫn</strong> hỏi: "Có nút nào ghi [từ đầu tiên] không?" → Nếu có → Ra lệnh bấm nút đó.</li>
+                            <li>Nếu không có → Hỏi từ tiếp theo trong danh sách, cứ thế cho đến khi tìm được.</li>
+                        </ol>
+                        
+                        <h4>📋 BẢNG TRA CỨU:</h4>
+                        
+                        <table class="data-table priority-table">
+                            <thead>
+                                <tr>
+                                    <th>Từ trên nút</th>
+                                    <th>Bấm nút có từ (theo thứ tự ưu tiên)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>READY</td><td>YES, OKAY, WHAT, MIDDLE, LEFT, PRESS, RIGHT, BLANK, READY</td></tr>
+                                <tr><td>FIRST</td><td>LEFT, OKAY, YES, MIDDLE, NO, RIGHT, NOTHING, UHHH, WAIT, READY, BLANK, WHAT, PRESS, FIRST</td></tr>
+                                <tr><td>NO</td><td>BLANK, UHHH, WAIT, FIRST, WHAT, READY, RIGHT, YES, NOTHING, LEFT, PRESS, OKAY, NO</td></tr>
+                                <tr><td>BLANK</td><td>WAIT, RIGHT, OKAY, MIDDLE, BLANK</td></tr>
+                                <tr><td>NOTHING</td><td>UHHH, RIGHT, OKAY, MIDDLE, YES, BLANK, NO, PRESS, LEFT, WHAT, WAIT, FIRST, NOTHING</td></tr>
+                                <tr><td>YES</td><td>OKAY, RIGHT, UHHH, MIDDLE, FIRST, WHAT, PRESS, READY, NOTHING, YES</td></tr>
+                                <tr><td>WHAT</td><td>UHHH, WHAT</td></tr>
+                                <tr><td>UHHH</td><td>READY, NOTHING, LEFT, WHAT, OKAY, YES, RIGHT, NO, PRESS, BLANK, UHHH</td></tr>
+                                <tr><td>LEFT</td><td>RIGHT, LEFT</td></tr>
+                                <tr><td>RIGHT</td><td>YES, NOTHING, READY, PRESS, NO, WAIT, WHAT, RIGHT</td></tr>
+                                <tr><td>MIDDLE</td><td>BLANK, READY, OKAY, WHAT, NOTHING, PRESS, NO, WAIT, LEFT, MIDDLE</td></tr>
+                                <tr><td>OKAY</td><td>MIDDLE, NO, FIRST, YES, UHHH, NOTHING, WAIT, OKAY</td></tr>
+                                <tr><td>WAIT</td><td>UHHH, NO, BLANK, OKAY, YES, LEFT, FIRST, PRESS, WHAT, WAIT</td></tr>
+                                <tr><td>PRESS</td><td>RIGHT, MIDDLE, YES, READY, PRESS</td></tr>
+                                <tr><td>YOU</td><td>SURE, YOU ARE, YOUR, YOU'RE, NEXT, UH HUH, UR, HOLD, WHAT?, YOU</td></tr>
+                                <tr><td>YOU ARE</td><td>YOUR, NEXT, LIKE, UH HUH, WHAT?, DONE, UH UH, HOLD, YOU, U, YOU'RE, SURE, UR, YOU ARE</td></tr>
+                                <tr><td>YOUR</td><td>UH UH, YOU ARE, UH HUH, YOUR</td></tr>
+                                <tr><td>YOU'RE</td><td>YOU, YOU'RE</td></tr>
+                                <tr><td>UR</td><td>DONE, U, UR</td></tr>
+                                <tr><td>U</td><td>UH HUH, SURE, NEXT, WHAT?, YOU'RE, UR, UH UH, DONE, U</td></tr>
+                                <tr><td>UH HUH</td><td>UH HUH</td></tr>
+                                <tr><td>UH UH</td><td>UR, U, YOU ARE, YOU'RE, NEXT, UH UH</td></tr>
+                                <tr><td>WHAT?</td><td>YOU, HOLD, YOU'RE, YOUR, U, DONE, UH UH, LIKE, YOU ARE, UH HUH, UR, NEXT, WHAT?</td></tr>
+                                <tr><td>DONE</td><td>SURE, UH HUH, NEXT, WHAT?, YOUR, UR, YOU'RE, HOLD, LIKE, YOU, U, YOU ARE, UH UH, DONE</td></tr>
+                                <tr><td>NEXT</td><td>WHAT?, UH HUH, UH UH, YOUR, HOLD, SURE, NEXT</td></tr>
+                                <tr><td>HOLD</td><td>YOU ARE, U, DONE, UH UH, YOU, UR, SURE, WHAT?, YOU'RE, NEXT, HOLD</td></tr>
+                                <tr><td>SURE</td><td>YOU ARE, DONE, LIKE, YOU'RE, YOU, HOLD, UH HUH, UR, SURE</td></tr>
+                                <tr><td>LIKE</td><td>YOU'RE, NEXT, U, UR, HOLD, DONE, UH UH, WHAT?, UH HUH, YOU, LIKE</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="note">
+                        <strong>📌 VÍ DỤ:</strong>
+                        <ul>
+                            <li><strong>Màn hình hiển thị:</strong> "READY"</li>
+                            <li><strong>Tra bảng:</strong> READY → Danh sách: YES, OKAY, WHAT, MIDDLE, LEFT, PRESS...</li>
+                            <li><strong>Hỏi người chơi:</strong> "Có nút nào ghi YES không?"</li>
+                            <li><strong>Nếu có YES:</strong> "Bấm nút YES!" → Xong!</li>
+                            <li><strong>Nếu không có YES:</strong> "Có OKAY không?" → Tiếp tục theo danh sách cho đến khi tìm được.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODULE 3: KÝ HIỆU CỔ -->
+            <section class="module-doc">
+                <h2>MODULE 3: KÝ HIỆU CỔ (KEYPADS)</h2>
+                
+                <div class="instruction">
+                    
+                    <div class="rules">
+                        <h4>📋 QUY TẮC:</h4>
+                        
+                        <ol style="margin-left: 30px; margin-top: 10px;">
+                            <li><strong style="color: #c41e3a;">⚠️ LƯU Ý:</strong> Trên màn hình bom chỉ hiển thị <strong>4 ký hiệu</strong>, nhưng mỗi cột dưới đây có <strong>7 ký hiệu</strong> đầy đủ.</li>
+                            <li>Người chơi sẽ mô tả 4 ký hiệu họ thấy. Nhiệm vụ của bạn:</li>
+                            <li>Tìm cột nào chứa <strong>CẢ 4 ký hiệu</strong> mà người chơi mô tả.</li>
+                            <li>Ra lệnh bấm 4 ký hiệu đó theo <strong>thứ tự từ TRÊN xuống DƯỚI</strong> trong cột (bỏ qua các ký hiệu khác không xuất hiện).</li>
+                        </ol>
+                        
+                        <div class="symbol-columns">
+                            <div class="column">
+                                <h5>CỘT 1</h5>
+                                <div class="symbols">
+                                    <span class="symbol">Ϙ</span>
+                                    <span class="symbol">ƛ</span>
+                                    <span class="symbol">Ϟ</span>
+                                    <span class="symbol">Ѭ</span>
+                                    <span class="symbol">★</span>
+                                    <span class="symbol">ϗ</span>
+                                    <span class="symbol">©</span>
+                                </div>
+                            </div>
+                            
+                            <div class="column">
+                                <h5>CỘT 2</h5>
+                                <div class="symbols">
+                                    <span class="symbol">Ӭ</span>
+                                    <span class="symbol">Ϙ</span>
+                                    <span class="symbol">Ͽ</span>
+                                    <span class="symbol">Ҩ</span>
+                                    <span class="symbol">☆</span>
+                                    <span class="symbol">ϗ</span>
+                                    <span class="symbol">¿</span>
+                                </div>
+                            </div>
+                            
+                            <div class="column">
+                                <h5>CỘT 3</h5>
+                                <div class="symbols">
+                                    <span class="symbol">©</span>
+                                    <span class="symbol">Ѽ</span>
+                                    <span class="symbol">Ҩ</span>
+                                    <span class="symbol">ѯ</span>
+                                    <span class="symbol">ƛ</span>
+                                    <span class="symbol">☆</span>
+                                    <span class="symbol">Ӭ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="column">
+                                <h5>CỘT 4</h5>
+                                <div class="symbols">
+                                    <span class="symbol">Ϟ</span>
+                                    <span class="symbol">Ψ</span>
+                                    <span class="symbol">Ѭ</span>
+                                    <span class="symbol">ϗ</span>
+                                    <span class="symbol">Ͽ</span>
+                                    <span class="symbol">ѯ</span>
+                                    <span class="symbol">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </section>
+
+            <!-- MODULE 4: NÚT MÀU -->
+            <section class="module-doc">
+                <h2>MODULE 4: NÚT MÀU</h2>
+                
+                <div class="instruction">
+                    
+                    <div class="rules">
+                        <h4>📋 QUY TẮC DỊCH MÀU:</h4>
+                        
+                        <div class="rule-section">
+                            <h5>▶ Nếu số Serial CÓ NGUYÊN ÂM (A, E, I, O, U):</h5>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Màu nháy</th>
+                                        <th>Bấm màu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="color-red">ĐỎ</td><td class="color-blue">XANH DƯƠNG</td></tr>
+                                    <tr><td class="color-blue">XANH DƯƠNG</td><td class="color-red">ĐỎ</td></tr>
+                                    <tr><td class="color-green">XANH LÁ</td><td class="color-yellow">VÀNG</td></tr>
+                                    <tr><td class="color-yellow">VÀNG</td><td class="color-green">XANH LÁ</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="rule-section">
+                            <h5>▶ Nếu số Serial KHÔNG CÓ NGUYÊN ÂM:</h5>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Màu nháy</th>
+                                        <th>Bấm màu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="color-red">ĐỎ</td><td class="color-blue">XANH DƯƠNG</td></tr>
+                                    <tr><td class="color-blue">XANH DƯƠNG</td><td class="color-yellow">VÀNG</td></tr>
+                                    <tr><td class="color-green">XANH LÁ</td><td class="color-green">XANH LÁ</td></tr>
+                                    <tr><td class="color-yellow">VÀNG</td><td class="color-red">ĐỎ</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- MODULE 5: MÃ MORSE -->
+            <section class="module-doc">
+                <h2>MODULE 5: MÃ MORSE (MORSE CODE)</h2>
+                
+                <div class="instruction">
+                    <p><strong>Mục đích:</strong> Dịch mã Morse thành từ, sau đó chỉnh tần số tương ứng.</p>
+                    <div class="note">
+                        <strong>📌 CÁCH CHƠI:</strong>
+                        <ul>
+                            <li>Đèn LED sẽ chớp liên tục theo mã Morse.</li>
+                            <li>Người chơi đọc: "Tít Te Tít" hoặc ". - ."</li>
+                            <li>Người đọc dịch ra chữ, ghép thành từ.</li>
+                            <li>Tra bảng tần số → Ra lệnh: "Chỉnh tần số 3.565 rồi bấm Gửi".</li>
+                            <li><strong>Lưu ý:</strong> Tín hiệu lặp lại liên tục, ghi chép cẩn thận.</li>
+                        </ul>
+                    </div>
+                    <div class="rules">
+                        <h4>📋 BẢNG MÃ MORSE:</h4>
+                        <table class="data-table morse-table">
+                            <thead>
+                                <tr>
+                                    <th>Chữ</th>
+                                    <th>Mã Morse</th>
+                                    <th>Chữ</th>
+                                    <th>Mã Morse</th>
+                                    <th>Chữ</th>
+                                    <th>Mã Morse</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A</td><td>.-</td>
+                                    <td>J</td><td>.---</td>
+                                    <td>S</td><td>...</td>
+                                </tr>
+                                <tr>
+                                    <td>B</td><td>-...</td>
+                                    <td>K</td><td>-.-</td>
+                                    <td>T</td><td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>C</td><td>-.-.</td>
+                                    <td>L</td><td>.-..</td>
+                                    <td>U</td><td>..-</td>
+                                </tr>
+                                <tr>
+                                    <td>D</td><td>-..</td>
+                                    <td>M</td><td>--</td>
+                                    <td>V</td><td>...-</td>
+                                </tr>
+                                <tr>
+                                    <td>E</td><td>.</td>
+                                    <td>N</td><td>-.</td>
+                                    <td>W</td><td>.--</td>
+                                </tr>
+                                <tr>
+                                    <td>F</td><td>..-.</td>
+                                    <td>O</td><td>---</td>
+                                    <td>X</td><td>-..-</td>
+                                </tr>
+                                <tr>
+                                    <td>G</td><td>--.</td>
+                                    <td>P</td><td>.--.</td>
+                                    <td>Y</td><td>-.--</td>
+                                </tr>
+                                <tr>
+                                    <td>H</td><td>....</td>
+                                    <td>Q</td><td>--.-</td>
+                                    <td>Z</td><td>--..</td>
+                                </tr>
+                                <tr>
+                                    <td>I</td><td>..</td>
+                                    <td>R</td><td>.-.</td>
+                                    <td></td><td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h4>📋 BẢNG TẦN SỐ:</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Từ</th>
+                                    <th>Tần số (MHz)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>SHELL</td><td>3.505</td></tr>
+                                <tr><td>HALLS</td><td>3.515</td></tr>
+                                <tr><td>SLICK</td><td>3.522</td></tr>
+                                <tr><td>TRICK</td><td>3.532</td></tr>
+                                <tr><td>BOXES</td><td>3.542</td></tr>
+                                <tr><td>LEAKS</td><td>3.552</td></tr>
+                                <tr><td>STROBE</td><td>3.565</td></tr>
+                                <tr><td>BISTRO</td><td>3.572</td></tr>
+                                <tr><td>FLICK</td><td>3.582</td></tr>
+                                <tr><td>BOMBS</td><td>3.592</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    
+                </div>
+            </section>
+
+            <!-- MODULE 6: ĐÈN LED -->
+            <section class="module-doc">
+                <h2>MODULE 6: ĐÈN LED (THE LEDS)</h2>
+                
+                <div class="instruction">
+                    <p><strong>Mục đích:</strong> Xác định hướng đúng dựa vào trạng thái 12 đèn LED đang sáng.</p>
+                    
+                    <div class="rules">
+                        
+                        
+                        <div class="rule-section">
+                            <h5>▶ QUY TẮC:</h5>
+                            <p>Kiểm tra các điều kiện sau theo thứ tự. Áp dụng quy tắc ĐẦU TIÊN khớp:</p>
+                            <ol>
+                                <li><strong>Nếu đèn LED số 1, 3, 5 SÁNG (và các đèn khác TẮT):</strong><br>
+                                    → Chọn hướng <span class="direction">TRÊN (↑)</span></li>
+                                
+                                <li><strong>Nếu đèn LED số 7, 10, 12 SÁNG:</strong><br>
+                                    → Chọn hướng <span class="direction">DƯỚI (↓)</span></li>
+                                
+                                <li><strong>Nếu đèn LED số 5 SÁNG VÀ đèn LED số 7 TẮT:</strong><br>
+                                    → Chọn hướng <span class="direction">TRÁI (←)</span></li>
+                                
+                                <li><strong>Các trường hợp còn lại:</strong><br>
+                                    → Chọn hướng <span class="direction">PHẢI (→)</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="document-footer">
+            <p>© 2025 - Tài liệu được bảo mật tuyệt đối</p>
+            <p>Mọi sao chép, phân phối trái phép đều bị nghiêm cấm</p>
+        </footer>
+    </div>
+</body>
+</html>

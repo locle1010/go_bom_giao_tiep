@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gỡ Bom Giao Tiếp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">⚠️ GỠ BOM GIAO TIẾP ⚠️</h1>
+            <div class="bomb-info">
+                <div class="serial-number">
+                    <span class="label">SỐ SERIAL:</span>
+                    <span id="serialNumber" class="value">ABC123</span>
+                </div>
+                <div class="timer">
+                    <span class="label">THỜI GIAN:</span>
+                    <span id="timer" class="value">05:00</span>
+                </div>
+                <div class="strikes">
+                    <span class="label">LỖI:</span>
+                    <span id="strikes" class="value">0/3</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="modules-grid">
+            <!-- MODULE 1: CẮT DÂY -->
+            <div class="module" id="module-wires">
+                <div class="module-header">
+                    <h2>CẮT DÂY</h2>
+                    <span class="status" data-module="wires">⭕</span>
+                </div>
+                <div class="module-content">
+                    <div id="wires-container" class="wires-container"></div>
+                </div>
+            </div>
+
+            <!-- MODULE 2: MÊ CUNG TỪ -->
+            <div class="module" id="module-whosonfirst">
+                <div class="module-header">
+                    <h2>MÊ CUNG TỪ</h2>
+                    <span class="status" data-module="whosonfirst">⭕</span>
+                </div>
+                <div class="module-content">
+                    <div class="display-screen" id="display-screen">READY</div>
+                    <div class="button-grid" id="button-grid">
+                        <button class="word-button" data-position="0"></button>
+                        <button class="word-button" data-position="1"></button>
+                        <button class="word-button" data-position="2"></button>
+                        <button class="word-button" data-position="3"></button>
+                        <button class="word-button" data-position="4"></button>
+                        <button class="word-button" data-position="5"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 3: KÝ HIỆU CỔ -->
+            <div class="module" id="module-keypads">
+                <div class="module-header">
+                    <h2>KÝ HIỆU CỔ</h2>
+                    <span class="status" data-module="keypads">⭕</span>
+                </div>
+                <div class="module-content">
+                    <div class="keypads-grid" id="keypads-grid">
+                        <button class="keypad-button" data-index="0"></button>
+                        <button class="keypad-button" data-index="1"></button>
+                        <button class="keypad-button" data-index="2"></button>
+                        <button class="keypad-button" data-index="3"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 4: NÚT MÀU -->
+            <div class="module" id="module-simon">
+                <div class="module-header">
+                    <h2>NÚT MÀU</h2>
+                    <span class="status" data-module="simon">⭕</span>
+                </div>
+                <div class="module-content">
+                    <div class="simon-grid" id="simon-grid">
+                        <button class="simon-button red" data-color="red"></button>
+                        <button class="simon-button blue" data-color="blue"></button>
+                        <button class="simon-button green" data-color="green"></button>
+                        <button class="simon-button yellow" data-color="yellow"></button>
+                    </div>
+                    <div class="simon-info">
+                        <span>Giai đoạn: <span id="simon-stage">1</span></span>
+                        <button id="simon-replay" class="submit-button" style="margin-top: 10px;">🔁 NHÁY LẠI</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 5: MÃ MORSE -->
+            <div class="module" id="module-morse">
+                <div class="module-header">
+                    <h2>MÃ MORSE</h2>
+                    <span class="status" data-module="morse">⭕</span>
+                </div>
+                <div class="module-content">
+                    <div class="morse-led" id="morse-led"></div>
+                    <div class="morse-controls">
+                        <label for="frequency-slider">Tần số: <span id="frequency-value">3.505</span> MHz</label>
+                        <input type="range" id="frequency-slider" min="3505" max="3592" step="1" value="3505">
+                        <button id="morse-submit" class="submit-button">GỬI (TX)</button>
+                    </div>
+                    <div class="morse-display" id="morse-display"></div>
+                </div>
+            </div>
+
+            <!-- MODULE 6: ĐÈN LED -->
+            <div class="module" id="module-knob">
+                <div class="module-header">
+                    <h2>ĐÈN LED</h2>
+                    <span class="status" data-module="knob">⭕</span>
+                </div>
+                <div class="module-content">
+                    <div class="knob-leds-grid" id="knob-leds">
+                        <div class="led-item"><span class="led-number">1</span><div class="led" data-position="1"></div></div>
+                        <div class="led-item"><span class="led-number">2</span><div class="led" data-position="2"></div></div>
+                        <div class="led-item"><span class="led-number">3</span><div class="led" data-position="3"></div></div>
+                        <div class="led-item"><span class="led-number">4</span><div class="led" data-position="4"></div></div>
+                        <div class="led-item"><span class="led-number">5</span><div class="led" data-position="5"></div></div>
+                        <div class="led-item"><span class="led-number">6</span><div class="led" data-position="6"></div></div>
+                        <div class="led-item"><span class="led-number">7</span><div class="led" data-position="7"></div></div>
+                        <div class="led-item"><span class="led-number">8</span><div class="led" data-position="8"></div></div>
+                        <div class="led-item"><span class="led-number">9</span><div class="led" data-position="9"></div></div>
+                        <div class="led-item"><span class="led-number">10</span><div class="led" data-position="10"></div></div>
+                        <div class="led-item"><span class="led-number">11</span><div class="led" data-position="11"></div></div>
+                        <div class="led-item"><span class="led-number">12</span><div class="led" data-position="12"></div></div>
+                    </div>
+                    <div class="knob-control">
+                        <button class="knob-direction" data-direction="up">↑</button>
+                        <div class="knob-middle">
+                            <button class="knob-direction" data-direction="left">←</button>
+                            <button class="knob-direction" data-direction="right">→</button>
+                        </div>
+                        <button class="knob-direction" data-direction="down">↓</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="reset-button" class="control-button">🔄 RESET GAME</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

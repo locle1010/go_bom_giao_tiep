@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gỡ Bom Giao Tiếp - Chọn Vai Trò</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(139, 0, 0, 0.2) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            margin-bottom: 60px;
+            animation: glitchTitle 3s infinite;
+        }
+
+        @keyframes glitchTitle {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 2px); }
+            94% { transform: translate(2px, -2px); }
+            96% { transform: translate(-2px, -2px); }
+            98% { transform: translate(2px, 2px); }
+        }
+
+        .title {
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                0 0 40px #ff0000,
+                0 0 70px #ff0000,
+                0 0 80px #ff0000,
+                0 0 100px #ff0000;
+            letter-spacing: 5px;
+            animation: neonFlicker 1.5s infinite alternate;
+            color: #fff;
+        }
+
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 40px #ff0000,
+                    0 0 70px #ff0000,
+                    0 0 80px #ff0000,
+                    0 0 100px #ff0000;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #ff4500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            animation: slideIn 1s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+
+        .warning {
+            background: rgba(139, 0, 0, 0.3);
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 750px;
+            backdrop-filter: blur(5px);
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.5),
+                inset 0 0 20px rgba(255, 0, 0, 0.1);
+            animation: warningPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes warningPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 20px rgba(255, 0, 0, 0.5),
+                    inset 0 0 20px rgba(255, 0, 0, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 40px rgba(255, 0, 0, 0.8),
+                    inset 0 0 30px rgba(255, 0, 0, 0.2);
+            }
+        }
+
+        .warning h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+            font-weight: 900;
+        }
+
+        .warning p {
+            font-size: 1.15em;
+            line-height: 2;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .warning strong {
+            color: #ff4500;
+            text-shadow: 0 0 5px #ff4500;
+        }
+
+        .roles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .role-card {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 50px 35px;
+            backdrop-filter: blur(10px);
+            border: 3px solid;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, currentColor);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .role-card:hover::before {
+            opacity: 0.5;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .role-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 12px;
+            z-index: 0;
+        }
+
+        .role-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .role-card:nth-child(1) {
+            border-color: #ff0000;
+        }
+
+        .role-card:nth-child(1)::before {
+            color: #ff0000;
+        }
+
+        .role-card:nth-child(2) {
+            border-color: #00ff88;
+        }
+
+        .role-card:nth-child(2)::before {
+            color: #00ff88;
+        }
+
+        .role-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .role-card:nth-child(1):hover {
+            box-shadow: 0 30px 60px rgba(255, 0, 0, 0.6);
+        }
+
+        .role-card:nth-child(2):hover {
+            box-shadow: 0 30px 60px rgba(0, 255, 136, 0.6);
+        }
+
+        .role-icon {
+            font-size: 6em;
+            margin-bottom: 25px;
+            display: block;
+            filter: drop-shadow(0 0 20px currentColor);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .role-card:nth-child(1) .role-icon {
+            animation: bombShake 2s ease-in-out infinite;
+        }
+
+        @keyframes bombShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .role-title {
+            font-size: 2.3em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .role-card:nth-child(1) .role-title {
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .role-card:nth-child(2) .role-title {
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .role-description {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .role-note {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #ff4500;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 0.95em;
+            color: #666;
+            animation: fadeIn 1.5s ease 1s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3em;
+                letter-spacing: 3px;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .roles-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .role-card {
+                padding: 40px 25px;
+            }
+
+            .role-icon {
+                font-size: 5em;
+            }
+
+            .role-title {
+                font-size: 1.9em;
+            }
+
+            .warning {
+                padding: 25px;
+            }
+
+            .warning h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">⚠️ GỠ BOM GIAO TIẾP ⚠️</h1>
+            <p class="subtitle">KEEP TALKING AND NOBODY EXPLODES</p>
+            
+            <div class="warning">
+                <h3>🎮 HƯỚNG DẪN CHƠI</h3>
+                <p><strong>Đây là game hợp tác 2 người:</strong></p>
+                <p>🔴 <strong>Người Gỡ Bom:</strong> Nhìn thấy bom nhưng KHÔNG được xem tài liệu</p>
+                <p>📘 <strong>Người Đọc Tài Liệu:</strong> Có tài liệu hướng dẫn nhưng KHÔNG được nhìn bom</p>
+                <p>💬 <strong>Giao tiếp rõ ràng là chìa khóa để sống sót!</strong></p>
+            </div>
+            
+            <p style="font-size: 1.5em; margin-top: 35px; color: #ff4500; font-weight: bold; text-shadow: 0 0 10px #ff4500;">
+                👇 CHỌN VAI TRÒ CỦA BẠN 👇
+            </p>
+        </div>
+
+        <div class="roles-container">
+            <a href="bom/index.html" class="role-card">
+                <span class="role-icon">💣</span>
+                <h2 class="role-title">NGƯỜI GỠ BOM</h2>
+                <p class="role-description">
+                    Bạn sẽ nhìn thấy quả bom với 6 module cần gỡ.
+                    Hãy mô tả chính xác những gì bạn thấy cho người đọc tài liệu.
+                </p>
+                <p class="role-note">
+                    ⚠️ KHÔNG được xem tài liệu hướng dẫn!
+                </p>
+            </a>
+
+            <a href="doc/index.html" class="role-card">
+                <span class="role-icon">📖</span>
+                <h2 class="role-title">NGƯỜI ĐỌC TÀI LIỆU</h2>
+                <p class="role-description">
+                    Bạn có tài liệu hướng dẫn chi tiết về cách gỡ từng module.
+                    Hãy lắng nghe người gỡ bom và chỉ dẫn chính xác.
+                </p>
+                <p class="role-note">
+                    ⚠️ KHÔNG được nhìn màn hình bom!
+                </p>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 - Gỡ Bom Giao Tiếp | Inspired by Keep Talking and Nobody Explodes</p>
+        </div>
+    </div>
+</body>
+</html>
